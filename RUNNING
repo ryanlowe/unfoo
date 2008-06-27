@@ -1,0 +1,29 @@
+
+Install Rubinius using the instructions at
+http://rubinius.lighthouseapp.com/projects/5089/installation
+
+
+Install Rake for Rubinius
+
+  $> sudo rbx gem install rake --no-rdoc --no-ri
+
+
+Install Rails for Rubinius
+
+  $> sudo rbx gem install rails --no-rdoc --no-ri
+  
+  
+Put the unfoo project in a working directory using Git
+
+  $> git clone git://github.com/ryanlowe/unfoo.git
+  
+
+Start up WEBrick
+
+  $> rbx script/server -p 9999
+  
+  
+  
+PROBLEMS
+- mongrel did not work for me
+- sqlite3 did not work for me, I used mysql instead
