@@ -1,5 +1,6 @@
 
 Jun 27
+- add layout, stylesheet and front page
 = vendor/rails: remove references to broken regex RJS_PATTERN_EVERYTHING
     selector_assertions.rb line 599-600, 613-621
 = add Site controller
