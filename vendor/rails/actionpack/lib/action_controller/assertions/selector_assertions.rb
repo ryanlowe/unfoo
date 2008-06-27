@@ -596,8 +596,8 @@ module ActionController
             Regexp.quote("new Insertion.#{insertion.to_s.camelize}")
           end.join('|'))
           RJS_PATTERN_HTML = /"((\\"|[^"])*)"/
-          RJS_PATTERN_EVERYTHING = Regexp.new("#{RJS_STATEMENTS[:any]}\\(\"([^\"]*)\", #{RJS_PATTERN_HTML}\\)",
-                                              Regexp::MULTILINE)
+          # RJS_PATTERN_EVERYTHING = Regexp.new("#{RJS_STATEMENTS[:any]}\\(\"([^\"]*)\", #{RJS_PATTERN_HTML}\\)",
+          #                                     Regexp::MULTILINE)
           RJS_PATTERN_UNICODE_ESCAPED_CHAR = /\\u([0-9a-zA-Z]{4})/
         end
 
@@ -610,15 +610,15 @@ module ActionController
             body = @response.body.dup
             root = HTML::Node.new(nil)
 
-            while true
-              next if body.sub!(RJS_PATTERN_EVERYTHING) do |match|
-                html = unescape_rjs($3)
-                matches = HTML::Document.new(html).root.children.select { |n| n.tag? }
-                root.children.concat matches
-                ""
-              end
-              break
-            end
+            # while true
+            #   next if body.sub!(RJS_PATTERN_EVERYTHING) do |match|
+            #     html = unescape_rjs($3)
+            #     matches = HTML::Document.new(html).root.children.select { |n| n.tag? }
+            #     root.children.concat matches
+            #     ""
+            #   end
+            #   break
+            # end
 
             root
           else
