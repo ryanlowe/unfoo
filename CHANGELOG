@@ -1,5 +1,6 @@
 
 Jun 30
+= change User#login to User#username
 - add simple signup, login pages
 = add acts_as_authenticated plugin
 
