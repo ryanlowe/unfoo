@@ -1,4 +1,4 @@
-body { font-family:Helvetica;font-size:16pt; }
+body, input { font-family:Helvetica;font-size:16pt; }
 
 body { margin:0;padding:0;background-color:#f8f8f8; }
 h1,h2,h3,h4 { margin:0;padding:0; }

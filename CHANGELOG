@@ -1,4 +1,8 @@
 
+Jun 30
+- add simple signup, login pages
+= add acts_as_authenticated plugin
+
 Jun 27
 - add layout, stylesheet and front page
 = vendor/rails: remove references to broken regex RJS_PATTERN_EVERYTHING
