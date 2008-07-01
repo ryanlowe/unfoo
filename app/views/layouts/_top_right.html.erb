@@ -1,0 +1,15 @@
+<% unless @omit_top_right -%>
+    <div id="top_right">
+<% if logged_in? -%>
+      <ul class="collapsed menu">
+        <li class="first"><b><%=h current_user.username %></b></li>
+        <li><%= link_to 'log out', logout_url, :method => :post %></li>
+      </ul>
+<% else -%>
+      <ul class="collapsed menu">
+        <li class="first"><%= link_to 'log in', login_url, :rel => "nofollow" %></li>
+        <li><%= link_to 'sign up', signup_url, :rel => "nofollow" %></li>
+      </ul>
+<% end -%>
+    </div>
+<% end -%>

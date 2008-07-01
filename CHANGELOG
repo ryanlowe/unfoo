@@ -1,5 +1,6 @@
 
 Jun 30
+- add a page header to the layout
 - put login form on front page
 - add home page
 = add Home controller

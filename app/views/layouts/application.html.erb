@@ -7,6 +7,7 @@
 </head>
 <body>
 <div id="page">
+<%= render :partial => 'layouts/header' %>
 <%= render :partial => 'layouts/title' %>
 <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
 <%= yield %>
