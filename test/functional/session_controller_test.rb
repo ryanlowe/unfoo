@@ -1,8 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'session_controller'
+#require 'session_controller'
 
 # Re-raise errors caught by the controller.
-class SessionController; def rescue_action(e) raise e end; end
+#class SessionController; def rescue_action(e) raise e end; end
 
 class SessionControllerTest < Test::Unit::TestCase
   fixtures :users
@@ -14,7 +14,6 @@ class SessionControllerTest < Test::Unit::TestCase
   end
   
   def test_routing
-    assert_routing '/home',   :controller => 'session', :action => 'index'
     assert_routing '/signup', :controller => 'session', :action => 'signup'
     assert_routing '/login',  :controller => 'session', :action => 'login'
     assert_routing '/logout', :controller => 'session', :action => 'logout'
@@ -94,27 +93,27 @@ class SessionControllerTest < Test::Unit::TestCase
     assert_equal @response.cookies["auth_token"], []
   end
 
-  def test_should_login_with_cookie
-    users(:ryan).remember_me
-    @request.cookies["auth_token"] = cookie_for(:ryan)
-    get :index
-    assert @controller.send(:logged_in?)
-  end
-
-  def test_should_fail_expired_cookie_login
-    users(:ryan).remember_me
-    users(:ryan).update_attribute :remember_token_expires_at, 5.minutes.ago
-    @request.cookies["auth_token"] = cookie_for(:ryan)
-    get :index
-    assert !@controller.send(:logged_in?)
-  end
-
-  def test_should_fail_cookie_login
-    users(:ryan).remember_me
-    @request.cookies["auth_token"] = auth_token('invalid_auth_token')
-    get :index
-    assert !@controller.send(:logged_in?)
-  end
+  # def test_should_login_with_cookie
+  #   users(:ryan).remember_me
+  #   @request.cookies["auth_token"] = cookie_for(:ryan)
+  #   get :index
+  #   assert @controller.send(:logged_in?)
+  # end
+  # 
+  # def test_should_fail_expired_cookie_login
+  #   users(:ryan).remember_me
+  #   users(:ryan).update_attribute :remember_token_expires_at, 5.minutes.ago
+  #   @request.cookies["auth_token"] = cookie_for(:ryan)
+  #   get :index
+  #   assert !@controller.send(:logged_in?)
+  # end
+  # 
+  # def test_should_fail_cookie_login
+  #   users(:ryan).remember_me
+  #   @request.cookies["auth_token"] = auth_token('invalid_auth_token')
+  #   get :index
+  #   assert !@controller.send(:logged_in?)
+  # end
 
   protected
     def create_user(options = {})

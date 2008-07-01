@@ -1,7 +1,11 @@
 
 Jun 30
+- add home page
+= add Home controller
 = change User#login to User#username
 - add simple signup, login pages
+= add Session controller
+= add User model
 = add acts_as_authenticated plugin
 
 Jun 27

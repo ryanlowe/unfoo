@@ -1,29 +1,29 @@
 class SessionController < ApplicationController
 
-  def index
-    redirect_to(:action => 'signup') unless logged_in? || User.count > 0
-  end
+  # def index
+  #   redirect_to(:action => 'signup') unless logged_in? || User.count > 0
+  # end
   
   def signup
     @user = User.new(params[:user])
-    return unless request.post?
+    @title = "Sign up" and return unless request.post?
     @user.save!
     self.current_user = @user
-    redirect_back_or_default(:controller => '/session', :action => 'index')
+    redirect_back_or_default(:controller => 'home', :action => 'index')
     flash[:notice] = "Thanks for signing up!"
   rescue ActiveRecord::RecordInvalid
     render :action => 'signup'
   end
 
   def login
-    return unless request.post?
+    @title = "Log in" and return unless request.post?
     self.current_user = User.authenticate(params[:username], params[:password])
     if logged_in?
       if params[:remember_me] == "1"
         self.current_user.remember_me
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default(:controller => '/session', :action => 'index')
+      redirect_back_or_default(:controller => 'home', :action => 'index')
       flash[:notice] = "Logged in successfully"
     end
   end
@@ -33,7 +33,7 @@ class SessionController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default(:controller => '/session', :action => 'index')
+    redirect_back_or_default(:controller => 'site', :action => 'front')
   end
   
 end

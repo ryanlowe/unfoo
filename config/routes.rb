@@ -6,12 +6,16 @@ ActionController::Routing::Routes.draw do |map|
     site.front   '/',        :action => 'front'
   end
   
+  #home
+  map.with_options :controller => "home" do |home|
+    home.home '/home', :action => 'index'
+  end
+  
   #session
   map.with_options :controller => "session" do |session|
-    session.home   '/home',   :action => 'index'
     session.signup '/signup', :action => 'signup'
-    session.signup '/login',  :action => 'login'
-    session.signup '/logout', :action => 'logout'
+    session.login  '/login',  :action => 'login'
+    session.logout '/logout', :action => 'logout'
   end
 
 end
