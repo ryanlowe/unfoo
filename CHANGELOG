@@ -1,5 +1,6 @@
 
 Jun 30
+- put login form on front page
 - add home page
 = add Home controller
 = change User#login to User#username
